@@ -5,6 +5,7 @@ const EDITOR = preload("res://addons/godot-css-theme/editor/css_editor.tscn")
 
 var file_editor
 var import_plugin
+var inspector_plugin
 
 func _enter_tree():
 	file_editor = EDITOR.instantiate()
@@ -15,6 +16,9 @@ func _enter_tree():
 
 	import_plugin = preload("res://addons/godot-css-theme/import_plugin.gd").new();
 	add_import_plugin(import_plugin)
+	
+	inspector_plugin = preload("res://addons/godot-css-theme/inspector_plugin.gd").new();
+	add_inspector_plugin(inspector_plugin)
 
 func _exit_tree():
 	get_editor_interface().get_editor_main_screen().remove_child(file_editor)
